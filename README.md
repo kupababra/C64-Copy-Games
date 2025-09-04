@@ -93,23 +93,21 @@ lsusb
 Create `write_game.sh`:
 ```bash
 #!/bin/bash
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 examples/example.d64"
+if [ -z "$1" ]; then
+  echo "Użycie: $0 nazwa_gry.d64"
+  echo "Usage: $0 game_name.d64"
+  exit 1
+fi
+
+if ! command -v d64copy &> /dev/null
+then
+    echo "d64copy nie jest zainstalowane! / is not installed!"
     exit 1
 fi
-D64_FILE="$1"
-if [ ! -f "$D64_FILE" ]; then
-    echo "$D64_FILE not found!"
-    exit 1
-fi
-DEVICE=8
-echo "Copying $D64_FILE to 1541 II (device $DEVICE)..."
-diskcopy -$DEVICE "$D64_FILE"
-if [ $? -eq 0 ]; then
-    echo "Copy completed successfully!"
-else
-    echo "Error during copying."
-fi
+
+echo "Rozpoczynam kopiowanie / Starting copy: $1"
+d64copy "$1"
+echo "Kopiowanie zakończone / Copy finished!"
 ```
 Make it executable:
 ```bash
