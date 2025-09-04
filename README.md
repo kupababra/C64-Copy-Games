@@ -54,7 +54,7 @@ chmod +x write_game.sh
 
 ### Wgrywanie gry
 ```bash
-./write_game.sh /examples/example.d64
+sudo ./write_game.sh /examples/example.d64
 ```
 Na C64:
 ```basic
@@ -116,7 +116,7 @@ chmod +x write_game.sh
 
 ### Loading the Game
 ```bash
-./write_game.sh /examples/example.d64
+sudo ./write_game.sh /examples/example.d64
 ```
 On C64:
 ```basic
