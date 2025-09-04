@@ -128,7 +128,6 @@ RUN
 
 ## 🔗 Useful Links
 - [OpenCBM GitHub](https://github.com/OpenCBM/opencbm)
-- [XUM1541 Project](https://www.busware.de/xum1541/)
 
 ## 📝 License
 MIT License
