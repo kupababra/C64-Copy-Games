@@ -116,7 +116,7 @@ chmod +x write_game.sh
 
 ### Loading the Game
 ```bash
-./copy_d64.sh /path/to/game.d64
+./write_game.sh /examples/example.d64
 ```
 On C64:
 ```basic
