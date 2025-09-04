@@ -10,7 +10,7 @@
 - Stacja dyskietek Commodore 1541 II
 - Kabel IEC
 - Plik `.d64` z grą
-- Git, gcc, make
+- Git, gcc, make, cc65
 
 ### Instalacja OpenCBM z Git
 ```bash
@@ -72,7 +72,7 @@ RUN
 - Commodore 1541 II disk drive
 - IEC cable
 - Game `.d64` file
-- Git, gcc, make
+- Git, gcc, make, cc65
 
 ### Install OpenCBM from Git
 ```bash
