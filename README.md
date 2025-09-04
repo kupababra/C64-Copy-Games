@@ -28,35 +28,33 @@ lsusb
 - Włącz stację i ustaw numer ID np. 8.
 
 ### Skrypt Bash do kopiowania `.d64`
-Utwórz `copy_d64.sh`:
+Utwórz `write_game.sh`:
 ```bash
 #!/bin/bash
-if [ $# -ne 1 ]; then
-    echo "Użycie: $0 ścieżka/do/gry.d64"
+if [ -z "$1" ]; then
+  echo "Użycie: $0 nazwa_gry.d64"
+  echo "Usage: $0 game_name.d64"
+  exit 1
+fi
+
+if ! command -v d64copy &> /dev/null
+then
+    echo "d64copy nie jest zainstalowane! / is not installed!"
     exit 1
 fi
-D64_FILE="$1"
-if [ ! -f "$D64_FILE" ]; then
-    echo "Plik $D64_FILE nie istnieje!"
-    exit 1
-fi
-DEVICE=8
-echo "Kopiowanie $D64_FILE na stację 1541 II (device $DEVICE)..."
-diskcopy -$DEVICE "$D64_FILE"
-if [ $? -eq 0 ]; then
-    echo "Kopiowanie zakończone pomyślnie!"
-else
-    echo "Wystąpił błąd podczas kopiowania."
-fi
+
+echo "Rozpoczynam kopiowanie / Starting copy: $1"
+d64copy "$1"
+echo "Kopiowanie zakończone / Copy finished!"
 ```
 Nadaj uprawnienia:
 ```bash
-chmod +x copy_d64.sh
+chmod +x write_game.sh
 ```
 
 ### Wgrywanie gry
 ```bash
-./copy_d64.sh /ścieżka/do/gry.d64
+./write_game.sh /examples/example.d64
 ```
 Na C64:
 ```basic
@@ -92,11 +90,11 @@ lsusb
 - Power on the drive and set device ID e.g., 8.
 
 ### Bash Script for Copying `.d64`
-Create `copy_d64.sh`:
+Create `write_game.sh`:
 ```bash
 #!/bin/bash
 if [ $# -ne 1 ]; then
-    echo "Usage: $0 path/to/game.d64"
+    echo "Usage: $0 examples/example.d64"
     exit 1
 fi
 D64_FILE="$1"
@@ -115,7 +113,7 @@ fi
 ```
 Make it executable:
 ```bash
-chmod +x copy_d64.sh
+chmod +x write_game.sh
 ```
 
 ### Loading the Game
