@@ -201,7 +201,6 @@ Place sample `.d64` images in the `examples/` directory.
 ---
 
 ## 📷 Screenshots
-*(tu możesz dodać zdjęcia XUM1541, C64 i przykładowe zrzuty z terminala)*
 
 ---
 
